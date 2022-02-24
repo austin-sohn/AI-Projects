@@ -4,10 +4,8 @@
 
 from search import *
 class WolfGoatCabbage():
-    def __init__(self, initial = {'F', 'G', 'W', 'C'}, goal = {}):
-        self.initial = initial
-        self.goal = goal
-        self.state = initial
+    def __init__(self, initial, goal = {'F', 'G', 'W', 'C'}):
+        super().__init__(initial, goal)
 
     def goal_test(self, state):
         goal = False
@@ -24,17 +22,23 @@ class WolfGoatCabbage():
             state.remove('W','C')
         if state == {'G', 'F'}:
             state.remove('G')
-        froze = frozenset(state)
-        return froze
+        froze_state = frozenset(state)
+        return froze_state
 
     def actions(self, state):
-        print(state)
-        act_list = []
-        return act_list
+        pot_act = {'F', 'G', 'W', 'C'}
+        if 'F' in state:
+            pot_act.remove('F')
+        if 'G' in state:
+            pot_act.remove('G')
+        if 'W' in state:
+            pot_act.remove('W')
+        if 'C' in state:
+            pot_act.remove('C')
+        return pot_act
 
 if __name__ == '__main__':
     wgc = WolfGoatCabbage()
-    wgc.actions(wgc.state)
     """
     solution = depth_first_graph_search(wgc).solution()
     print(solution)
