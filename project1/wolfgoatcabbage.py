@@ -4,10 +4,8 @@
 
 from search import *
 class WolfGoatCabbage(Problem):
-    def __init__(self, initial = {}, goal = {'F', 'G', 'W', 'C'}):
-        self.initial = initial
-        self.goal = goal
-        self.state = initial
+    def __init__(self, initial = frozenset({'F', 'W', 'G', 'C'}), goal = set()):
+        super().__init__(initial, goal)
 
     def goal_test(self, state):
         goal = False
