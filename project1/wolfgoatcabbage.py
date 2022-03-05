@@ -9,7 +9,7 @@ class WolfGoatCabbage(Problem):
 
     def goal_test(self, state):
         goal = False
-        if state == self.goal:
+        if len(state) == 0:
             goal = True
         return goal
 
@@ -19,6 +19,9 @@ class WolfGoatCabbage(Problem):
         print(state)
         print(action)
         # assumes action is valid
+        idk = {'F','G'}
+        if(state == idk):
+            print("yes")
         if action.issubset(state):
             state = state.difference(action)
         else:
@@ -32,13 +35,13 @@ class WolfGoatCabbage(Problem):
         if state == {'F', 'W', 'G', 'C'}:
             act_list = [{'F', 'G'}]
         elif state == {'W', 'C'}:
-            act_list = [{'F'}, {'F', 'G'}]
+            act_list = [{'F'}]
         elif state == {'F', 'W', 'C'}:
-            act_list = [{'F', 'W'}, {'F', 'C'}]
+            act_list = [{'F', 'C'}]
         elif state == {'C'} or state == {'W'}:
-            act_list = [{'F'}, {'F', 'G'}]
+            act_list = [{'F', 'G'}]
         elif state == {'G'}:
-            act_list = [{'F'}, {'F', 'C'}, {'F', 'W'}]
+            act_list = [{'F', 'G'}]
         elif state == {'F', 'G', 'C'}:
             act_list = [{'F', 'C'}]
         elif state == {'F', 'W', 'G'}:
@@ -53,3 +56,21 @@ if __name__ == '__main__':
     print(solution)
     # solution = breadth_first_graph_search(wgc).solution()
     # print(solution)
+""""
+if state == {'F', 'W', 'G', 'C'}:
+            act_list = [{'F', 'G'}]
+        elif state == {'W', 'C'}:
+            act_list = [{'F'}, {'F', 'G'}]
+        elif state == {'F', 'W', 'C'}:
+            act_list = [{'F', 'W'}, {'F', 'C'}]
+        elif state == {'C'} or state == {'W'}:
+            act_list = [{'F'}, {'F', 'G'}]
+        elif state == {'G'}:
+            act_list = [{'F'}, {'F', 'W'}]
+        elif state == {'F', 'G', 'C'}:
+            act_list = [{'F', 'C'}, {'F', 'G'}]
+        elif state == {'F', 'W', 'G'}:
+            act_list = [{'F', 'W'}]
+        elif state == {'F', 'G'}:
+            act_list == [{'F', 'G'}]
+        return act_list"""
