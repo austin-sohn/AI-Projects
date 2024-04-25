@@ -1,6 +1,6 @@
 # Project 1
 ### Wolf, Goat, and Cabbage
-- Uses breadth and depth first earch algorithm to solve the wolf, goat, and cabbage problem.
+- Uses breadth and depth first search algorithm to solve the wolf, goat, and cabbage problem.
 # Project 2
 ### Game of Nim
 - Plays game of nim in the console
